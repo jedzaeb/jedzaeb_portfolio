@@ -230,6 +230,12 @@
             margin-bottom: 1rem;
         }
 
+        .videos-secondary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
         /* Gallery Section */
         .gallery-grid {
             display: grid;
@@ -386,6 +392,10 @@
             .gallery-grid {
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             }
+
+            .videos-secondary {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -404,8 +414,7 @@
 
     <!-- Hero Section -->
     <section id="hero">
-        <!-- REPLACE WITH YOUR HEADSHOT URL -->
-        <img src="https://via.placeholder.com/250" alt="Jed Zaeb Headshot" class="hero-image">
+        <img src="headshot.jpeg" alt="Jed Zaeb Headshot" class="hero-image">
         <h1>Jed Zaeb</h1>
         <p>Actor • Performer • Storyteller</p>
     </section>
@@ -416,8 +425,8 @@
             <h2>About Me</h2>
             <div class="about-content">
                 <div class="bio">
-                    <p>Based in the Hudson Valley, NY, I'm a passionate actor dedicated to bringing authentic stories to life. With experience across commercials, short films, and PSAs, I approach each project with professionalism and creative energy.</p>
-                    <p>My commitment to the craft drives me to continuously develop my skills and seek out compelling roles that challenge and inspire.</p>
+                    <p>Based in the Hudson Valley, NY, I'm a versatile performer with extensive credits across film, commercial, theater, and voice work. With training from UCB Improv, Shadowland Theater, and diverse movement and vocal workshops, I bring depth, authenticity, and professional dedication to every project.</p>
+                    <p>From dramatic roles in independent films to comedic timing in national commercials, I thrive on challenges that push creative boundaries and tell compelling stories.</p>
                 </div>
                 <div class="stats">
                     <div class="stat-item">
@@ -425,12 +434,16 @@
                         <span>Hudson Valley, NY</span>
                     </div>
                     <div class="stat-item">
-                        <strong>Experience</strong>
-                        <span>5 Commercials, 4 Short Films, 1 PSA</span>
+                        <strong>Physical</strong>
+                        <span>6'2" • 170 lbs • Black/Brown Hair • Brown Eyes</span>
                     </div>
                     <div class="stat-item">
-                        <strong>Skills</strong>
-                        <span>On-Camera, Self-Tape Production, Script Analysis</span>
+                        <strong>Contact</strong>
+                        <span>jed.zaeb@gmail.com<br>718-219-9877</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>Union Status</strong>
+                        <span>Non-Union</span>
                     </div>
                 </div>
             </div>
@@ -444,89 +457,103 @@
             <div class="filter-tabs">
                 <button class="filter-btn active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="film">Film</button>
-                <button class="filter-btn" data-filter="tv">TV</button>
                 <button class="filter-btn" data-filter="commercial">Commercials</button>
                 <button class="filter-btn" data-filter="theater">Theater</button>
                 <button class="filter-btn" data-filter="voiceover">Voiceover</button>
-                <button class="filter-btn" data-filter="skills">Skills</button>
+                <button class="filter-btn" data-filter="training">Training</button>
             </div>
             <div class="resume-grid" id="resumeGrid">
-                <!-- Commercial 1 -->
-                <div class="resume-item" data-category="commercial">
-                    <h3>Commercial Project 1</h3>
-                    <p class="meta">Role: Lead | Director: [Director Name] | 2024</p>
-                    <p>Description of the commercial project and your role.</p>
-                </div>
-                <!-- Commercial 2 -->
-                <div class="resume-item" data-category="commercial">
-                    <h3>Commercial Project 2</h3>
-                    <p class="meta">Role: Supporting | Director: [Director Name] | 2024</p>
-                    <p>Description of the commercial project and your role.</p>
-                </div>
-                <!-- Commercial 3 -->
-                <div class="resume-item" data-category="commercial">
-                    <h3>Commercial Project 3</h3>
-                    <p class="meta">Role: Featured | Director: [Director Name] | 2023</p>
-                    <p>Description of the commercial project and your role.</p>
-                </div>
-                <!-- Commercial 4 -->
-                <div class="resume-item" data-category="commercial">
-                    <h3>Commercial Project 4</h3>
-                    <p class="meta">Role: Lead | Director: [Director Name] | 2023</p>
-                    <p>Description of the commercial project and your role.</p>
-                </div>
-                <!-- Commercial 5 -->
-                <div class="resume-item" data-category="commercial">
-                    <h3>Commercial Project 5</h3>
-                    <p class="meta">Role: Supporting | Director: [Director Name] | 2023</p>
-                    <p>Description of the commercial project and your role.</p>
-                </div>
-                <!-- Short Film 1 -->
+                <!-- Film Credits -->
                 <div class="resume-item" data-category="film">
-                    <h3>Short Film 1</h3>
-                    <p class="meta">Role: Lead | Director: [Director Name] | 2024</p>
-                    <p>Description of the short film and your character.</p>
+                    <h3>Head in Brine</h3>
+                    <p class="meta">Role: Head | Director: Eileen McQueen | 2026</p>
                 </div>
-                <!-- Short Film 2 -->
                 <div class="resume-item" data-category="film">
-                    <h3>Short Film 2</h3>
-                    <p class="meta">Role: Supporting | Director: [Director Name] | 2024</p>
-                    <p>Description of the short film and your character.</p>
+                    <h3>Philly Roulette</h3>
+                    <p class="meta">Role: Player | Director: Sayombhu Mukdeeprom | 2025</p>
                 </div>
-                <!-- Short Film 3 -->
                 <div class="resume-item" data-category="film">
-                    <h3>Short Film 3</h3>
-                    <p class="meta">Role: Lead | Director: [Director Name] | 2023</p>
-                    <p>Description of the short film and your character.</p>
+                    <h3>God Hates a Coward</h3>
+                    <p class="meta">Role: Chris | Director: David Leo | 2025</p>
                 </div>
-                <!-- Short Film 4 -->
                 <div class="resume-item" data-category="film">
-                    <h3>Short Film 4</h3>
-                    <p class="meta">Role: Featured | Director: [Director Name] | 2023</p>
-                    <p>Description of the short film and your character.</p>
+                    <h3>The Invisible Finish Line</h3>
+                    <p class="meta">Role: The Boss | Director: Cyrus Choi | 2024</p>
                 </div>
+                <div class="resume-item" data-category="film">
+                    <h3>Death Inc.</h3>
+                    <p class="meta">Role: Death | Director: Sophia Conte | 2024</p>
+                </div>
+                <div class="resume-item" data-category="film">
+                    <h3>The Trial</h3>
+                    <p class="meta">Role: Angry Villager | Director: Gandja Monteiro | 2024</p>
+                </div>
+                <div class="resume-item" data-category="film">
+                    <h3>Sleep Tight</h3>
+                    <p class="meta">Role: Shadow | Director: Dan Horsch | 2024</p>
+                </div>
+                <div class="resume-item" data-category="film">
+                    <h3>Seen</h3>
+                    <p class="meta">Role: Silhouette | Director: Dhwani Shah | 2024</p>
+                </div>
+
+                <!-- Commercial Credits -->
+                <div class="resume-item" data-category="commercial">
+                    <h3>MadMuscles.com - Tai Chi Longevity</h3>
+                    <p class="meta">Role: Disciple | 2024</p>
+                </div>
+                <div class="resume-item" data-category="commercial">
+                    <h3>Deel.com - This is Fine</h3>
+                    <p class="meta">Role: H.R. Manager | 2024</p>
+                </div>
+                <div class="resume-item" data-category="commercial">
+                    <h3>NASM.com - Lunchbreak</h3>
+                    <p class="meta">Role: Coworker | 2024</p>
+                </div>
+                <div class="resume-item" data-category="commercial">
+                    <h3>Fullpath.com - Car Dealer of the Past</h3>
+                    <p class="meta">Role: Sleazy Salesman | 2024</p>
+                </div>
+                <div class="resume-item" data-category="commercial">
+                    <h3>Fullpath.com - Car Dealer of the Future</h3>
+                    <p class="meta">Role: Sleazy Salesman | 2024</p>
+                </div>
+
                 <!-- PSA -->
                 <div class="resume-item" data-category="commercial">
-                    <h3>PSA Project</h3>
-                    <p class="meta">Role: Spokesperson | Producer: [Producer Name] | 2024</p>
-                    <p>Description of the PSA and message.</p>
+                    <h3>Still Here PSA</h3>
+                    <p class="meta">Role: H.I.V. | 2024</p>
                 </div>
-                <!-- Skills -->
-                <div class="resume-item" data-category="skills">
-                    <h3>Acting Skills</h3>
-                    <p>• Dramatic Performance<br>
-                       • Comedic Timing<br>
-                       • Improvisation<br>
-                       • Script Analysis<br>
-                       • Character Development</p>
+
+                <!-- Theater Credits -->
+                <div class="resume-item" data-category="theater">
+                    <h3>Hamlet</h3>
+                    <p class="meta">Role: Rosencrantz | Shadowland Theater, Ellenville, NY | 2024</p>
                 </div>
-                <div class="resume-item" data-category="skills">
-                    <h3>Technical Skills</h3>
-                    <p>• Self-Tape Production<br>
-                       • Video Editing<br>
-                       • Audio Recording<br>
-                       • Slate Technique<br>
-                       • On-Camera Confidence</p>
+                <div class="resume-item" data-category="theater">
+                    <h3>Oh! What a Lovely War</h3>
+                    <p class="meta">Role: Ensemble | Shadowland Theater, Ellenville, NY | 2023</p>
+                </div>
+
+                <!-- Voiceover -->
+                <div class="resume-item" data-category="voiceover">
+                    <h3>Lil Smokies Commercials</h3>
+                    <p class="meta">Voice Actor | 2024</p>
+                </div>
+                <div class="resume-item" data-category="voiceover">
+                    <h3>Lyft Safety PSA</h3>
+                    <p class="meta">Voice Actor | 2023</p>
+                </div>
+
+                <!-- Training -->
+                <div class="resume-item" data-category="training">
+                    <h3>Training</h3>
+                    <p>• Physical Theater - Shadowland Theater (Paul Herbig)<br>
+                       • Advanced Scene Study - Shadowland Theater (Jesse Carrey-Chan)<br>
+                       • Fundamentals of Acting 1 & 2 - Shadowland Theater (David Keohane)<br>
+                       • Kinlaw Movement & Vocal Workshop - Otion Front Studio, Brooklyn<br>
+                       • UCB Improv 201 - Los Angeles (Billy Merritt)<br>
+                       • UCB Improv 101 - Los Angeles (Mike Leffingwell)</p>
                 </div>
             </div>
         </div>
@@ -539,32 +566,79 @@
             <div class="media-grid">
                 <!-- Featured Reel -->
                 <div class="video-item">
-                    <h3>Demo Reel</h3>
-                    <div class="video-container">
-                        <!-- REPLACE dQw4w9WgXcQ with your YouTube video ID -->
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                                allowfullscreen 
-                                loading="lazy"></iframe>
-                    </div>
-                </div>
-                <!-- Additional Clip 1 -->
-                <div class="video-item">
                     <h3>Commercial Reel</h3>
                     <div class="video-container">
-                        <!-- REPLACE with your YouTube video ID -->
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        <iframe src="https://www.youtube.com/embed/R4CegYBIoRo" 
                                 allowfullscreen 
                                 loading="lazy"></iframe>
                     </div>
                 </div>
-                <!-- Additional Clip 2 -->
-                <div class="video-item">
-                    <h3>Dramatic Scenes</h3>
-                    <div class="video-container">
-                        <!-- REPLACE with your YouTube video ID -->
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                                allowfullscreen 
-                                loading="lazy"></iframe>
+                
+                <!-- Additional Works -->
+                <div class="videos-secondary">
+                    <div class="video-item">
+                        <h3>Head in Brine</h3>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/vscDf_SgxNc" 
+                                    allowfullscreen 
+                                    loading="lazy"></iframe>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <h3>Still Here PSA</h3>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/egLRNZlG_h4" 
+                                    allowfullscreen 
+                                    loading="lazy"></iframe>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <h3>The Invisible Finish Line</h3>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/OChg3BnlXr4" 
+                                    allowfullscreen 
+                                    loading="lazy"></iframe>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <h3>Tai Chi Longevity (MadMuscles)</h3>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/fAHxd5FJGhI" 
+                                    allowfullscreen 
+                                    loading="lazy"></iframe>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <h3>This is Fine (Deel.com)</h3>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/m6BNSLJJL_g" 
+                                    allowfullscreen 
+                                    loading="lazy"></iframe>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <h3>Lunchbreak (NASM.com)</h3>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/jm5-kq132uY" 
+                                    allowfullscreen 
+                                    loading="lazy"></iframe>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <h3>Car Dealer of the Past (Fullpath)</h3>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/RNB5bn_ziFs" 
+                                    allowfullscreen 
+                                    loading="lazy"></iframe>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <h3>Car Dealer of the Future (Fullpath)</h3>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/Acly2kcjuV0" 
+                                    allowfullscreen 
+                                    loading="lazy"></iframe>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -576,24 +650,23 @@
         <div class="container">
             <h2>Photo Gallery</h2>
             <div class="gallery-grid" id="galleryGrid">
-                <!-- REPLACE these placeholder images with your actual photo URLs -->
                 <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="https://via.placeholder.com/300x300/1a1a1a/d4af37?text=Photo+1" alt="Headshot 1" loading="lazy">
+                    <img src="photo1.jpeg" alt="Photo 1" loading="lazy">
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="https://via.placeholder.com/300x300/1a1a1a/d4af37?text=Photo+2" alt="Headshot 2" loading="lazy">
+                    <img src="photo2.jpeg" alt="Photo 2" loading="lazy">
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="https://via.placeholder.com/300x300/1a1a1a/d4af37?text=Photo+3" alt="Behind the Scenes" loading="lazy">
+                    <img src="photo3.jpeg" alt="Photo 3" loading="lazy">
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="https://via.placeholder.com/300x300/1a1a1a/d4af37?text=Photo+4" alt="On Set" loading="lazy">
+                    <img src="photo4.jpeg" alt="Photo 4" loading="lazy">
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="https://via.placeholder.com/300x300/1a1a1a/d4af37?text=Photo+5" alt="Character Shot" loading="lazy">
+                    <img src="photo5.jpeg" alt="Photo 5" loading="lazy">
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="https://via.placeholder.com/300x300/1a1a1a/d4af37?text=Photo+6" alt="Production Still" loading="lazy">
+                    <img src="photo6.jpeg" alt="Photo 6" loading="lazy">
                 </div>
             </div>
         </div>
