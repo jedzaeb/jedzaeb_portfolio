@@ -1,38 +1,905 @@
-        .resume-item {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jed Zaeb - Actor Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #0a0a0a;
+            --secondary-bg: #1a1a1a;
+            --accent-gold: #d4af37;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --text-muted: #888888;
+            --border-color: #333333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        nav ul {
+            list-style: none;
             display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Hero Section */
+        #hero {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+
+        .hero-image {
+            width: 400px;
+            height: 400;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8 solid var(--accent-gold);
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-gold);
+        }
+
+        #hero p {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--accent-gold);
+            text-align: center;
+        }
+
+        /* About Section */
+        #about .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .bio {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .stats {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .stat-item {
+            background-color: var(--secondary-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .stat-item strong {
+            color: var(--accent-gold);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Resume Section */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            background-color: var(--secondary-bg);
+            color: var(--text-secondary);
             border: 2px solid var(--border-color);
             padding: 0.75rem 1.5rem;
-                      <div class="content-wrapper">
-                    <h3>Head in Brine</h3>
-                    <p class="meta">Role: Head | Director: Eileen McQueen | 2026</p>
-                    </div>
-                    <div class="video-embed">
-                        <iframe src="https://www.youtube.com/embed/egLRNZlG_h4" allowfullscreen loading="lazy"></iframe>
-                    </div>          border-radius: 25px;
+            border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 1rem;
-            margin-bottom: 1rem;
         }
 
-        .resume-item .content-wrapper {
-            flex: 1;
-            margin-right: 20px;
+        .filter-btn:hover,
+        .filter-btn.active {
+            background-color: var(--accent-gold);
+            color: var(--primary-bg);
+            border-color: var(--accent-gold);
         }
 
-        .resume-item .video-embed {
-            width: 180px;
-            height: 101px;
-            flex-shrink: 0;
+        .resume-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .resume-item {
+            background-color: var(--secondary-bg);
+            padding: 1.5rem;
             border-radius: 8px;
-            overflow: hidden;
-            border: 2px solid var(--accent-gold);
+            border-left: 4px solid var(--accent-gold);
+            transition: transform 0.3s ease;
         }
 
-        .resume-item .video-embed iframe {
+        .resume-item:hover {
+            transform: translateX(10px);
+        }
+
+        .resume-item h3 {
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .resume-item .meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Media Section */
+        .media-grid {
+            
+            display: grid;
+            gap: 2rem;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background-color: var(--secondary-bg);
+            border-radius: 8px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             border: none;
         }
+
+        .video-item {
+            margin-bottom: 2rem;
+        }
+
+        .video-item h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .videos-secondary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+            aspect-ratio: 1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 3rem;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--accent-gold);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--secondary-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-primary);
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .error-message {
+            color: #ff4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .submit-btn {
+            background-color: var(--accent-gold);
+            color: var(--primary-bg);
+            border: none;
+            padding: 1rem 3rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--secondary-bg);
+            color: var(--text-muted);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+
+            #hero p {
+                font-size: 1.2rem;
+            }
+
+            #about .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+
+            .videos-secondary {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#media">Media</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <img src="headshot.jpeg" alt="Jed Zaeb Headshot" class="hero-image">
+        <h1>Jed Zaeb</h1>
+        <p>Actor • Performer • Storyteller</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="bio">
+                    <p>Based in the Hudson Valley, NY, I'm a versatile performer with extensive credits across film, commercial, theater, and voice work. With training from UCB Improv, Shadowland Theater, and diverse movement and vocal workshops, I bring depth, authenticity, and professional dedication to every project.</p>
+                    <p>From dramatic roles in independent films to comedic timing in national commercials, I thrive on challenges that push creative boundaries and tell compelling stories.</p>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <strong>Location</strong>
+                        <span>Hudson Valley, NY</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>Physical</strong>
+                        <span>6'2" • 170 lbs • Black/Brown Hair • Brown Eyes</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>Contact</strong>
+                        <span>jed.zaeb@gmail.com<br>718-219-9877</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>Union Status</strong>
+                        <span>Non-Union</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume">
+        <div class="container">
+            <h2>Resume & Credits</h2>
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="film">Film</button>
+                <button class="filter-btn" data-filter="commercial">Commercials</button>
+                <button class="filter-btn" data-filter="theater">Theater</button>
+                                <button class="filter-btn" data-filter="musicvideo">Music Video</button>
+                                <button class="filter-btn" data-filter="radio">Radio</button>
+                <button class="filter-btn" data-filter="training">Training</button>
+            </div>
+            <div class="resume-grid" id="resumeGrid">
+                <!-- Film Credits -->
+                <div class="resume-item" data-category="film">
+                                        <a href="#media" class="video-thumbnail">
+                        <img src="https://img.youtube.com/vi/egLRNZlG_h4/0.jpg" alt="Head in Brine video">
+                    </a>
+                    <h3>Head in Brine</h3>
+                    <p class="meta">Role: Head | Director: Eileen McQueen | 2026</p>
+                </div>
+                <div class="resume-item" data-category="film">
+                <h3>Philly</h3>
+                                    <p class="meta">Role: Roulette Player | Director: Sayombhu Mukdeeprom | 2025</p>
+                </div>
+                <div class="resume-item" data-category="film">
+                <h3>God Hates a Coward</h3>                    <p class="meta">Role: Chris | Director: David Leo | 2025</p>
+                </div>
+                <div class="resume-item" data-category="film">
+                <h3>The Invisible Finish Line</h3>
+                                <p class="meta">Role: The Boss | Director: Cyrus Choi | 2024</p>
+                </div>
+                                <div class="resume-item" data-category="film">
+                    <h3>The Trial</h3>
+                    <p class="meta">Role: Angry Villager | Director: Gandja Monteiro | 2024</p>
+                </div>
+                <div class="resume-item" data-category="film">
+                    <h3>Sleep Tight</h3>
+                    <p class="meta">Role: Shadow | Director: Dan Horsch | 2024</p>
+                </div>
+            
+            <div class="resume-item" data-category="film">
+                <h3>Death Inc.</h3>
+                <p class="meta">Role: Death | Director: Sophia Conte | 2024</p>
+            </div>
+                <div class="resume-item" data-category="film">
+                    <h3>Seen</h3>
+                    <p class="meta">Role: Silhouette | Director: Dhwani Shah | 2024</p>
+                </div>
+
+                <!-- Commercial Credits -->
+                <div class="resume-item" data-category="commercial">
+                <h3>Still Here (PSA for Viiv Healthcare)</h3>
+                                    <p class="meta">Role: H.I.V. | 2025</p>
+                </div>
+                <div class="resume-item" data-category="commercial">
+                    <h3>Tai Chi Longevity (madmuscles.com)</h3>
+                    <p class="meta">Role: Disciple | 2025</p>
+                </div>
+                <div class="resume-item" data-category="commercial">
+                    <h3>This is fine (deel.com)</h3>
+                    <p class="meta">Role: H.R. Manager | 2024</p>
+                </div>
+                <div class="resume-item" data-category="commercial">
+                    <h3>Lunchbreak (nasm.com)</h3>
+                    <p class="meta">Role: Coworker | 2024</p>
+                </div>
+                <div class="resume-item" data-category="commercial">
+                    <h3>Car Dealer of the Past (fullpath.com)</h3>
+                    <p class="meta">Role: Sleazy Salesman | 2024</p>
+                </div>
+                <div class="resume-item" data-category="commercial">
+                    <h3>Car Dealer of the Future (fullpath.com)</h3>
+                    <p class="meta">Role: Sleazy Salesman | 2024</p>
+                </div>
+
+                                <!-- Theater -->
+                                <div class="resume-item" data-category="theater">
+                    <h3>Rumblings on the Rondout</h3>
+                <p class="meta">Role: Vicar | Director: Tricia Anderson | Hudson River Maritime Museum | 2024</p>                </div>
+
+                <div class="resume-item" data-category="theater">
+                    <h3>Haunted High Falls</h3>
+                    <p class="meta">Role: Dr. Stephen Brink | D&H Canal Museum | 2024 | Director: Maclain Maier</p>
+                </div>
+
+                <div class="resume-item" data-category="theater">
+                    <h3>Seeds Under Nuclear Winter: An Earth Opera</h3>
+                    <p class="meta">Role: Preacher/Magic Bird/Monk/Krishna/Musician | Widow Jane Mine | 2024 | Director: Elizabeth Clark</p>
+                </div>
+
+                <div class="resume-item" data-category="theater">
+                    <h3>Too Much Light</h3>
+                    <p class="meta">Role: Jed | Shadowland Theater | 2024 | Director: Paul Herbig</p>
+                </div>
+
+                <div class="resume-item" data-category="theater">
+                    <h3>Stuck</h3>
+                    <p class="meta">Role: Man in Elevator | Shadowland Stages | 2024 | Director: Paul Herbig</p>
+                </div>
+                
+                <div class="resume-item" data-category="theater">
+                    <h3>Jane, Queen's Foole (Staged Reading)</h3>
+                    <p class="meta">Role: Will Somer | Queen of Rogues | 2024 | Director: Barbara Blatner</p>
+                </div>
+
+                <div class="resume-item" data-category="theater">
+                    <h3>In Ink (Staged Reading)</h3>
+                    <p class="meta">Role: Johnny | The Flea Theater | 2024 | Director: Steele Filipek</p>
+                </div>
+
+                <div class="resume-item" data-category="theater">
+                    <h3>Broomstick Skyline</h3>
+                    <p class="meta">Role: Rocker #1 | Barning Arts Festival | 2024 | Director: Sophi Kravitz</p>
+                </div>
+
+                <div class="resume-item" data-category="theater">
+                    <h3>My Big Fat Geek Wedding</h3>
+                    <p class="meta">Role: Trojan Aphrodite | Taromina Peekskill | 2024 | Director: Elise Milner</p>
+                </div>
+                
+                <div class="resume-item" data-category="theater">
+                    <h3>Tis the Season to Close the Season</h3>
+                    <p class="meta">Role: Various | Phoenicia Playhouse | 2023 | Director: Megan Lui</p>
+                </div>
+
+                <div class="resume-item" data-category="theater">
+                    <h3>Condensation of The Causal Network</h3>
+                    <p class="meta">Role: The Real Telephone | Time & Space Limited | 2023 | Director: Bethany Ides</p>
+                </div>
+
+                <div class="resume-item" data-category="theater">
+                    <h3>Chelsea Hotel (Staged Reading)</h3>
+                    <p class="meta">Role: Sid Vicious | Phoenicia Playhouse | 2023 | Director: Thomas Cote</p>
+                </div>
+
+                <div class="resume-item" data-category="theater">
+                    <h3>Sam's Point (Staged Reading)</h3>
+                    <p class="meta">Role: Ray Tobin & Grover Gunsch | Phoenicia Playhouse | 2023 | Director: Marnie Andrews</p>
+                </div>
+
+                <div class="resume-item" data-category="theater">
+                    <h3>Seeds Under Nuclear Winter: An Earth Opera</h3>
+                    <p class="meta">Role: Prophet/Deity/Musician | Widow Jane Mine | 2023 | Director: Elizabeth Clark</p>
+                </div>
+
+                <div class="resume-item" data-category="theater">
+                    <h3>The Addams Family Musical</h3>
+                    <p class="meta">Role: Lurch | Phoenicia Playhouse | 2023 | Director: Ovi Vargas</p>
+                </div>
+
+                                <!-- Music Video -->
+                <div class="resume-item" data-category="musicvideo">
+                    <h3>Chat Pile - Deep Blue</h3>
+                    <p class="meta">Role: John Doe | Director: Steve Mondics | 2026</p>
+                </div>
+
+                            <!-- Radio Appearances -->
+            <div class="resume-item" data-category="radio">
+                <h3><a href="https://radiokingston.org/en/broadcast/dream-life-radio/episodes/dream-life-radio-a-conversation-with-jed-zaeb" target="_blank">Dream Life Radio</a></h3>
+                <p class="meta">Radio Kingston WKNY 107.9 FM - Kingston, NY | November 2024</p>
+            </div>
+
+            <div class="resume-item" data-category="radio">
+                <h3><a href="https://wavefarm.org/wf/archive/92aazd" target="_blank">WGXC Afternoon Show</a></h3>
+                <p class="meta">Wavefarm Radio WGXC 90.7 FM - Acra, NY | October 2024</p>
+            </div>
+
+            <div class="resume-item" data-category="radio">
+                <h3><a href="https://wavefarm.org/wf/archive/j9yxwj" target="_blank">Suddering Words</a></h3>
+                <p class="meta">Wavefarm Radio WGXC 90.7 FM - Acra, NY | October 2024</p>
+            </div>
+
+                <!-- PSA -->
+                </div>
+
+                <!-- Training -->
+                <div class="resume-item" data-category="training">
+                    <h3>Training</h3>
+                    <p>• Audition Techniques and Monologues - Shadowland Theater, Ellenville, NY : Instructor Ben Williamson<br>
+                                            • Kinlaw Movement & Vocal Workshop - Goodwitch Studio, Hudson, NY : Instructor Sarah Kinlaw<br>
+                    • Devised Story 1 & 2 (Scholarship) - Shadowland Theater, Ellenville, NY : Instructor Paul Herbig<br>• Advanced Scene Study - Shadowland Theater (Jesse Carrey-Chan)<br>
+                       • Fundamentals of Acting 1 & 2 - Shadowland Theater (David Keohane)<br>
+                       • Kinlaw Movement & Vocal Workshop - Otion Front Studio, Brooklyn<br>
+                       • UCB Improv 201 - Los Angeles (Billy Merritt)<br>
+                       • UCB Improv 101 - Los Angeles (Mike Leffingwell)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Section -->
+    <section id="media">
+        <div class="container">
+            <h2>Acting Reels & Clips</h2>
+            <div class="media-grid">
+                <!-- Featured Reel -->
+                <div class="video-item">
+                    <h3>Commercial Reel</h3>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/R4CegYBIoRo" 
+                                allowfullscreen 
+                                loading="lazy"></iframe>
+                    </div>
+                </div>
+                
+                <!-- Additional Works -->
+                <div class="videos-secondary">
+                    <div class="video-item">
+                <h3>Still Here PSA</h3>                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/vscDf_SgxNc" 
+                                    allowfullscreen 
+                                    loading="lazy"></iframe>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                <h3>Head in Brine</h3>                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/egLRNZlG_h4" 
+                                    allowfullscreen 
+                                    loading="lazy"></iframe>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <h3>The Invisible Finish Line</h3>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/OChg3BnlXr4" 
+                                    allowfullscreen 
+                                    loading="lazy"></iframe>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <h3>Tai Chi Longevity (MadMuscles)</h3>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/fAHxd5FJGhI" 
+                                    allowfullscreen 
+                                    loading="lazy"></iframe>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <h3>This is Fine (Deel.com)</h3>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/m6BNSLJJL_g" 
+                                    allowfullscreen 
+                                    loading="lazy"></iframe>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <h3>Lunchbreak (NASM.com)</h3>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/jm5-kq132uY" 
+                                    allowfullscreen 
+                                    loading="lazy"></iframe>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <h3>Car Dealer of the Past (Fullpath)</h3>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/RNB5bn_ziFs" 
+                                    allowfullscreen 
+                                    loading="lazy"></iframe>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <h3>Car Dealer of the Future (Fullpath)</h3>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/Acly2kcjuV0" 
+                                    allowfullscreen 
+                                    loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <h2>Photo Gallery</h2>
+            <div class="gallery-grid" id="galleryGrid">
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="photo1.jpeg" alt="Photo 1" loading="lazy">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="photo2.jpeg" alt="Photo 2" loading="lazy">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="photo3.jpeg" alt="Photo 3" loading="lazy">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="photo4.jpeg" alt="Photo 4" loading="lazy">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="photo5.jpeg" alt="Photo 5" loading="lazy">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="photo6.jpeg" alt="Photo 6" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required>
+                    <span class="error-message" id="nameError">Please enter your name</span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                    <span class="error-message" id="emailError">Please enter a valid email</span>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <input type="text" id="subject" name="subject" required>
+                    <span class="error-message" id="subjectError">Please enter a subject</span>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required></textarea>
+                    <span class="error-message" id="messageError">Please enter your message</span>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Jed Zaeb. All rights reserved.</p>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <img id="lightboxImage" src="" alt="">
+    </div>
+
+    <script>
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Resume Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const resumeItems = document.querySelectorAll('.resume-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                // Filter items
+                resumeItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Lightbox Functions
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            lightboxImage.src = img.src;
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+        }
+
+        // Form Validation
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            let isValid = true;
+
+            // Reset errors
+            document.querySelectorAll('.error-message').forEach(error => {
+                error.style.display = 'none';
+            });
+
+            // Validate name
+            if (name === '') {
+                document.getElementById('nameError').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email === '' || !emailRegex.test(email)) {
+                document.getElementById('emailError').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate subject
+            if (subject === '') {
+                document.getElementById('subjectError').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate message
+            if (message === '') {
+                document.getElementById('messageError').style.display = 'block';
+                isValid = false;
+            }
+
+            if (isValid) {
+                alert('Thank you for your message! I\'ll get back to you soon.');
+                document.getElementById('contactForm').reset();
+            }
+        }
+
+        // ESC key to close lightbox
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
